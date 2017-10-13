@@ -17,7 +17,10 @@ void Application::initSystem()
 
 	//Checks if GLFW was initialized
 	if (!glfwInit())
+	{
 		fatalError("GLFW INITIALIZATION FAILED!");
+		glfwTerminate();
+	}
 
 	//GLFW Window hints
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
