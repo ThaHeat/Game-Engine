@@ -13,8 +13,6 @@ Application::~Application()
 
 void Application::initSystem()
 {
-
-
 	//Checks if GLFW was initialized
 	if (!glfwInit())
 	{
@@ -34,8 +32,6 @@ void Application::initSystem()
 
 void Application::createWindow()
 {
-	
-
 	//GLFW Window hints
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
