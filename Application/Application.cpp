@@ -13,8 +13,6 @@ Application::~Application()
 
 void Application::initSystem()
 {
-	std::cout << "GAME ENGINE MADE WITH C++ AND OpenGL" << std::endl;
-
 	//Checks if GLFW was initialized
 	if (!glfwInit())
 	{
@@ -22,6 +20,16 @@ void Application::initSystem()
 		glfwTerminate();
 	}
 
+	glewExperimental = true;	//Enables GLEW experimental features
+	if (glewInit() != GLEW_OK)	//Checks if GLEW was initialized
+	{
+		fatalError("GLEW INITIALIZATION FAILED");
+		glfwTerminate();
+	}
+}
+
+void Application::createWindow()
+{
 	//GLFW Window hints
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
@@ -37,13 +45,6 @@ void Application::initSystem()
 
 	glfwMakeContextCurrent(_window);
 	framebuffer_size_callback(_window, _windowWidth, _windowHeight);
-
-	glewExperimental = true;	//Enables GLEW experimental features
-	if (glewInit() != GLEW_OK)	//Checks if GLEW was initialized
-	{
-		fatalError("GLEW INITIALIZATION FAILED");
-		glfwTerminate();
-	}
 }
 
 void Application::applicationLoop()
