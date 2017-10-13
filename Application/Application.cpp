@@ -13,12 +13,16 @@ Application::~Application()
 
 void Application::initSystem()
 {
+
+
 	//Checks if GLFW was initialized
 	if (!glfwInit())
 	{
 		fatalError("GLFW INITIALIZATION FAILED!");
 		glfwTerminate();
 	}
+
+	createWindow();
 
 	glewExperimental = true;	//Enables GLEW experimental features
 	if (glewInit() != GLEW_OK)	//Checks if GLEW was initialized
@@ -30,6 +34,8 @@ void Application::initSystem()
 
 void Application::createWindow()
 {
+	
+
 	//GLFW Window hints
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
