@@ -5,6 +5,8 @@
 #include <GL\glew.h>
 #include <GLFW\glfw3.h>
 
+#include "Meshes\Meshes.h"
+
 class Application
 {
 	public:
@@ -36,4 +38,6 @@ class Application
 			if (glfwGetKey(win, GLFW_KEY_ESCAPE) == GLFW_PRESS)
 				glfwSetWindowShouldClose(win, true);
 		}
+
+		Meshes meshes;
 };

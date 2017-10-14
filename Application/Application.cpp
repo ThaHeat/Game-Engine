@@ -21,6 +21,7 @@ void Application::initSystem()
 	}
 
 	createWindow();
+	meshes.initMesh();
 
 	glewExperimental = true;	//Enables GLEW experimental features
 	if (glewInit() != GLEW_OK)	//Checks if GLEW was initialized
@@ -55,8 +56,11 @@ void Application::applicationLoop()
 	{
 		processInput(_window);
 
+		
 		glClearColor(0.5f, 0.5f, 0.5f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT);
+
+		meshes.drawMesh();
 
 		glfwSwapBuffers(_window);
 		glfwPollEvents();
